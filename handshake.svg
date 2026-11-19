@@ -1,0 +1,39 @@
+<svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="280" cy="330" rx="240" ry="18" fill="#2B241D" opacity="0.05"/>
+
+  <!-- personnage gauche : conseillère -->
+  <g transform="translate(120,40)">
+    <path d="M-10 280 C-10 220 25 195 65 195 C105 195 140 220 140 280 L140 300 C140 308 130 312 118 312 L-2 312 C-14 312 -10 305 -10 300 Z" fill="#5E8463"/>
+    <rect x="40" y="150" width="50" height="50" rx="16" fill="#E2A87B"/>
+    <circle cx="65" cy="120" r="48" fill="#E2A87B"/>
+    <path d="M18 120 C12 80 38 60 65 60 C95 60 118 82 112 122 C104 104 92 112 80 104 C68 116 44 110 36 100 C30 110 20 108 18 120Z" fill="#4A4034"/>
+    <circle cx="50" cy="122" r="4.5" fill="#2B241D"/>
+    <circle cx="82" cy="122" r="4.5" fill="#2B241D"/>
+    <path d="M48 138 C58 148 74 148 84 138" stroke="#B85F37" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- bras tendu pour la poignée de main -->
+    <path d="M108 215 C140 218 162 232 172 250 L155 268 C140 252 122 244 102 240Z" fill="#5E8463"/>
+    <circle cx="168" cy="256" r="13" fill="#E2A87B"/>
+  </g>
+
+  <!-- personnage droit : client -->
+  <g transform="translate(300,40)">
+    <path d="M150 280 C150 220 115 195 75 195 C35 195 0 220 0 280 L0 300 C0 308 10 312 22 312 L142 312 C154 312 150 305 150 300 Z" fill="#D97A4D"/>
+    <rect x="60" y="150" width="50" height="50" rx="16" fill="#C98554"/>
+    <circle cx="85" cy="120" r="48" fill="#C98554"/>
+    <path d="M40 112 C36 78 58 56 85 56 C114 56 134 80 130 116 C122 100 110 108 98 100 C88 112 64 108 56 96 C50 104 42 100 40 112Z" fill="#2B241D"/>
+    <circle cx="70" cy="122" r="4.5" fill="#2B241D"/>
+    <circle cx="102" cy="122" r="4.5" fill="#2B241D"/>
+    <path d="M66 140 C76 150 92 150 102 140" stroke="#8C4A2E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- bras tendu -->
+    <path d="M22 215 C-10 218 -32 232 -42 250 L-25 268 C-10 252 8 244 28 240Z" fill="#D97A4D"/>
+    <circle cx="-38" cy="256" r="13" fill="#C98554"/>
+  </g>
+
+  <!-- jonction des mains -->
+  <circle cx="280" cy="260" r="11" fill="#D9A857"/>
+
+  <!-- étincelles de confiance -->
+  <circle cx="280" cy="200" r="6" fill="#D9A857"/>
+  <circle cx="320" cy="160" r="4" fill="#5E8463"/>
+  <circle cx="235" cy="155" r="4" fill="#D97A4D"/>
+</svg>
