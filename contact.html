@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Candriam Business Investissement</title>
+<meta name="description" content="Contactez notre équipe de conseillers pour toute question sur votre prêt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">FA</span>
+      <span class="brand-name">Candriam Business <br>Investissement<span data-i18n="brand_tagline">Établissement de crédit</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" data-i18n="nav_accueil">Accueil</a>
+      <a href="simulation.html" data-i18n="nav_simuler">Simuler un prêt</a>
+      <a href="offres.html" data-i18n="nav_offres">Nos prêts</a>
+      <a href="comment-ca-marche.html" data-i18n="nav_comment">Comment ça marche</a>
+      <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="a-propos.html" data-i18n="nav_apropos">À propos</a>
+      <a href="contact.html" class="current" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="simulation.html" class="btn btn-outline btn-small" data-i18n="nav_btn_simuler">Simuler</a>
+      <a href="demande.html" class="btn btn-primary btn-small" data-i18n="nav_btn_demander">Demander un prêt</a>
+      <select id="lang-switch" class="lang-switch" aria-label="Choisir la langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="burger" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Accueil</a> / Contact</p>
+    <p class="eyebrow">Nous contacter</p>
+    <h1>Une question avant de vous engager ?</h1>
+    <p class="lede">Notre équipe vous répond sous 24h ouvrées, par e-mail ou par téléphone.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap form-shell">
+    <form class="panel" id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-ok').style.display='block'; this.style.display='none';">
+      <p class="eyebrow">Formulaire</p>
+      <h3>Écrivez-nous</h3>
+      <p style="margin-bottom:26px;">Nous répondons à tous les messages sous 24h ouvrées.</p>
+
+      <div class="form-row">
+        <div class="field-block">
+          <label for="c-prenom">Prénom</label>
+          <input type="text" id="c-prenom" required>
+        </div>
+        <div class="field-block">
+          <label for="c-nom">Nom</label>
+          <input type="text" id="c-nom" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field-block">
+          <label for="c-email">E-mail</label>
+          <input type="email" id="c-email" required>
+        </div>
+        <div class="field-block">
+          <label for="c-tel">Téléphone (facultatif)</label>
+          <input type="tel" id="c-tel">
+        </div>
+      </div>
+      <div class="field-block">
+        <label for="c-sujet">Sujet</label>
+        <select id="c-sujet">
+          <option>Question sur une simulation</option>
+          <option>Suivi d'une demande de prêt</option>
+          <option>Question sur un remboursement</option>
+          <option>Autre demande</option>
+        </select>
+      </div>
+      <div class="field-block">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" required placeholder="Décrivez votre demande..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer le message</button>
+    </form>
+
+    <div class="panel alert success" id="contact-ok" style="display:none;">
+      <p class="eyebrow" style="margin-bottom:14px;">Message envoyé</p>
+      <h3>Merci pour votre message.</h3>
+      <p>Un conseiller vous répondra sous 24h ouvrées à l'adresse indiquée.</p>
+      <a href="index.html" class="btn btn-outline btn-small">Retour à l'accueil</a>
+    </div>
+
+    <div class="sticky-note">
+      <div class="panel">
+        <p class="eyebrow">Coordonnées</p>
+        <h3>Nous joindre directement</h3>
+        <ul class="checklist">
+          <li>01 84 60 00 00 — Lun-Ven, 9h-19h</li>
+          <li>contact@france-active-investissement.fr</li>
+          <li>12 rue de la Bourse, 75002 Paris</li>
+        </ul>
+        <hr class="rule" style="margin:22px 0;">
+        <p class="eyebrow" style="margin-bottom:10px;">Agences</p>
+        <p style="font-size:.9rem;">Paris · Lyon · Bordeaux</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ou simulez directement votre prêt</h2>
+    <a href="simulation.html" class="btn btn-primary">Simuler mon prêt</a>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:16px;">
+          <span class="brand-mark">FA</span>
+          <span class="brand-name" style="color:#fff;">Candriam Business <br>Investissement</span>
+        </a>
+        <p data-i18n="footer_disclaimer">Établissement de crédit agréé. Le prêt vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_prets">Prêts</h4>
+        <ul>
+          <li><a href="offres.html#perso" data-i18n="footer_pret_perso">Prêt personnel</a></li>
+          <li><a href="offres.html#auto" data-i18n="footer_pret_auto">Prêt auto</a></li>
+          <li><a href="offres.html#travaux" data-i18n="footer_pret_travaux">Prêt travaux</a></li>
+          <li><a href="offres.html#pro" data-i18n="footer_pret_pro">Prêt professionnel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_entreprise">Entreprise</h4>
+        <ul>
+          <li><a href="a-propos.html" data-i18n="footer_apropos">À propos</a></li>
+          <li><a href="comment-ca-marche.html" data-i18n="footer_comment">Comment ça marche</a></li>
+          <li><a href="faq.html" data-i18n="footer_faq">FAQ</a></li>
+          <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_legal">Légal</h4>
+        <ul>
+          <li><a href="mentions-legales.html" data-i18n="footer_mentions">Mentions légales</a></li>
+          <li><a href="mentions-legales.html#confidentialite" data-i18n="footer_confidentialite">Confidentialité</a></li>
+          <li><a href="mentions-legales.html#cgu" data-i18n="footer_cgu">CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Candriam Business Investissement — SA au capital de 2 500 000 €</span>
+      <span>RCS Paris 812 345 678 — ORIAS n°16 000 000</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="assets/i18n.js"></script>
+<script src="assets/lang.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

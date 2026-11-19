@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simuler un prêt — Candriam Business Investissement</title>
+<meta name="description" content="Simulez gratuitement votre prêt personnel, auto, travaux ou professionnel et estimez votre mensualité en temps réel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">FA</span>
+      <span class="brand-name">Candriam Business<br>Investissement<span data-i18n="brand_tagline">Établissement de crédit</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" data-i18n="nav_accueil">Accueil</a>
+      <a href="simulation.html" class="current" data-i18n="nav_simuler">Simuler un prêt</a>
+      <a href="offres.html" data-i18n="nav_offres">Nos prêts</a>
+      <a href="comment-ca-marche.html" data-i18n="nav_comment">Comment ça marche</a>
+      <a href="faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="a-propos.html" data-i18n="nav_apropos">À propos</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="simulation.html" class="btn btn-outline btn-small" data-i18n="nav_btn_simuler">Simuler</a>
+      <a href="demande.html" class="btn btn-primary btn-small" data-i18n="nav_btn_demander">Demander un prêt</a>
+      <select id="lang-switch" class="lang-switch" aria-label="Choisir la langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="burger" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Accueil</a> / Simulation</p>
+    <p class="eyebrow">Simulateur</p>
+    <h1>Estimez votre mensualité en 30 secondes</h1>
+    <p class="lede">Ajustez le montant, la durée et le type de prêt. L'estimation est indicative et sans engagement — elle n'affecte jamais votre score de crédit.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap form-shell">
+    <div class="panel">
+      <p class="eyebrow">Paramètres</p>
+      <h3>Votre simulation</h3>
+      <p style="margin-bottom:28px;">Modifiez librement les curseurs ci-dessous.</p>
+
+      <div class="field">
+        <label>Montant souhaité <span class="val" id="sim-amount-val">10 000 €</span></label>
+        <input type="range" id="sim-amount" min="1000" max="75000" step="500" value="10000">
+      </div>
+      <div class="field">
+        <label>Durée de remboursement <span class="val" id="sim-duration-val">48 mois</span></label>
+        <input type="range" id="sim-duration" min="6" max="84" step="6" value="48">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label>Type de financement</label>
+        <select id="sim-type">
+          <option value="perso">Prêt personnel — 5,40 % indicatif</option>
+          <option value="auto">Prêt auto / moto — 4,20 % indicatif</option>
+          <option value="travaux">Prêt travaux — 4,60 % indicatif</option>
+          <option value="pro">Prêt professionnel — 5,90 % indicatif</option>
+        </select>
+      </div>
+
+      <hr class="rule" style="margin:30px 0;">
+
+      <p style="font-size:.85rem;color:var(--muted);">Les taux affichés sont des Taux Annuels Effectifs Globaux (TAEG) indicatifs, susceptibles de varier selon votre profil et la durée choisie après étude de votre dossier.</p>
+    </div>
+
+    <div class="sticky-note">
+      <div class="ledger">
+        <div class="ledger-head">
+          <strong>Résultat</strong>
+          <span class="tag">Indicatif</span>
+        </div>
+        <div class="ledger-body">
+          <div class="ledger-result" style="margin-top:0;">
+            <div class="row"><span>Montant emprunté</span><strong id="sim-amount-echo">10 000 €</strong></div>
+            <div class="row"><span>Durée</span><strong id="sim-duration-echo">48 mois</strong></div>
+            <div class="row"><span>Taux annuel (TAEG)</span><strong id="sim-taux">—</strong></div>
+            <div class="row"><span>Coût total du crédit</span><strong id="sim-cout">—</strong></div>
+            <div class="row"><span>Montant total dû</span><strong id="sim-total">—</strong></div>
+            <div class="row total"><span>Mensualité</span><strong id="sim-mensualite">—</strong></div>
+          </div>
+        </div>
+        <div class="ledger-foot" style="flex-direction:column;align-items:stretch;gap:12px;">
+          <a id="sim-to-demande" href="demande.html" class="btn btn-primary" style="justify-content:center;">Demander ce prêt</a>
+          <small style="text-align:center;">Sans engagement · Réponse sous 24h</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <hr class="rule">
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Repères</p>
+      <h2>Comment lire votre simulation</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="num">TAEG</span>
+        <h3>Le taux annuel effectif global</h3>
+        <p>Il inclut le taux d'intérêt et les frais de dossier. C'est le seul chiffre à comparer entre établissements.</p>
+      </div>
+      <div class="card">
+        <span class="num">Mensualité</span>
+        <h3>Ce que vous remboursez chaque mois</h3>
+        <p>Constante sur toute la durée du prêt, hors assurance facultative.</p>
+      </div>
+      <div class="card">
+        <span class="num">Coût total</span>
+        <h3>Le prix réel du crédit</h3>
+        <p>La différence entre ce que vous remboursez au total et le montant emprunté.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:16px;">
+          <span class="brand-mark">FA</span>
+          <span class="brand-name" style="color:#fff;">Candriam Business<br>Investissement</span>
+        </a>
+        <p data-i18n="footer_disclaimer">Établissement de crédit agréé. Le prêt vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_prets">Prêts</h4>
+        <ul>
+          <li><a href="offres.html#perso" data-i18n="footer_pret_perso">Prêt personnel</a></li>
+          <li><a href="offres.html#auto" data-i18n="footer_pret_auto">Prêt auto</a></li>
+          <li><a href="offres.html#travaux" data-i18n="footer_pret_travaux">Prêt travaux</a></li>
+          <li><a href="offres.html#pro" data-i18n="footer_pret_pro">Prêt professionnel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_entreprise">Entreprise</h4>
+        <ul>
+          <li><a href="a-propos.html" data-i18n="footer_apropos">À propos</a></li>
+          <li><a href="comment-ca-marche.html" data-i18n="footer_comment">Comment ça marche</a></li>
+          <li><a href="faq.html" data-i18n="footer_faq">FAQ</a></li>
+          <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_legal">Légal</h4>
+        <ul>
+          <li><a href="mentions-legales.html" data-i18n="footer_mentions">Mentions légales</a></li>
+          <li><a href="mentions-legales.html#confidentialite" data-i18n="footer_confidentialite">Confidentialité</a></li>
+          <li><a href="mentions-legales.html#cgu" data-i18n="footer_cgu">CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Candriam Business Investissement — SA au capital de 2 500 000 €</span>
+      <span>RCS Paris 812 345 678 — ORIAS n°16 000 000</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/lang.js"></script>
+<script src="assets/script.js"></script>
+<script>
+  // Synchronisation des champs écho (montant / durée) sur cette page
+  document.addEventListener("DOMContentLoaded", () => {
+    const amount = document.getElementById("sim-amount");
+    const duration = document.getElementById("sim-duration");
+    const amountEcho = document.getElementById("sim-amount-echo");
+    const durationEcho = document.getElementById("sim-duration-echo");
+    function sync() {
+      amountEcho.textContent = document.getElementById("sim-amount-val").textContent;
+      durationEcho.textContent = document.getElementById("sim-duration-val").textContent;
+    }
+    amount.addEventListener("input", sync);
+    duration.addEventListener("input", sync);
+    sync();
+  });
+</script>
+</body>
+</html>

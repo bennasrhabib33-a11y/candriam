@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candriam Business Investissement — Prêts personnels, auto, travaux & professionnels</title>
+<meta name="description" content="Simulez et demandez votre prêt en ligne en quelques minutes avec Candriam Business Investissement. Réponse de principe sous 24h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">FA</span>
+      <span class="brand-name">Candriam Business<br>Investissement<span data-i18n="brand_tagline">Établissement de crédit</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" class="current" data-i18n="nav_accueil" data-i18n="nav_home">Accueil</a>
+      <a href="simulation.html" data-i18n="nav_simuler" data-i18n="nav_simulate">Simuler un prêt</a>
+      <a href="offres.html" data-i18n="nav_offres" data-i18n="nav_offers">Nos prêts</a>
+      <a href="comment-ca-marche.html" data-i18n="nav_comment" data-i18n="nav_how">Comment ça marche</a>
+      <a href="faq.html" data-i18n="nav_faq" data-i18n="nav_faq">FAQ</a>
+      <a href="a-propos.html" data-i18n="nav_apropos" data-i18n="nav_about">À propos</a>
+      <a href="contact.html" data-i18n="nav_contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="simulation.html" class="btn btn-outline btn-small" data-i18n="nav_btn_simuler">Simuler</a>
+      <a href="demande.html" class="btn btn-primary btn-small" data-i18n="nav_btn_demander">Demander un prêt</a>
+      <select id="lang-switch" class="lang-switch" aria-label="Choisir la langue">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="burger" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-blob" style="width:480px;height:480px;background:var(--primary);top:-160px;left:-120px;"></div>
+  <div class="hero-blob" style="width:380px;height:380px;background:var(--sage);bottom:-180px;right:0;opacity:.3;"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero_eyebrow" data-i18n="hero_eyebrow">Crédit à la consommation &amp; professionnel</p>
+      <h1 data-i18n="hero_title" data-i18n="hero_h1">Le prêt, expliqué clairement, accordé rapidement.</h1>
+      <p class="lede" data-i18n="hero_lede">Candriam Business Investissement finance vos projets personnels et professionnels avec des taux transparents, un dossier 100&nbsp;% en ligne et une équipe qui répond, vraiment.</p>
+      <div class="hero-cta">
+        <a href="simulation.html" class="btn btn-primary" data-i18n="btn_simuler_mon_pret">Simuler mon prêt</a>
+        <a href="demande.html" class="btn btn-outline" data-i18n="btn_faire_demande">Faire une demande</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>24h</strong><span data-i18n="stat_reponse" data-i18n="hero_stat1_lbl">Réponse de principe</span></div>
+        <div><strong>4,2&nbsp;%</strong><span data-i18n="stat_taux" data-i18n="hero_stat2_lbl">Taux à partir de</span></div>
+        <div><strong>12&nbsp;000+</strong><span data-i18n="stat_dossiers" data-i18n="hero_stat3_lbl">Dossiers financés</span></div>
+      </div>
+    </div>
+
+    <div>
+    <img src="assets/illustrations/hero-person.svg" alt="Illustration d'une personne souriante consultant son téléphone" style="max-width:300px;margin:0 auto 18px;">
+    <div class="ledger">
+      <div class="ledger-head">
+        <strong data-i18n="sim_titre" data-i18n="sim_title">Simulation rapide</strong>
+        <span class="tag" data-i18n="sim_indicatif" data-i18n="sim_tag">Indicatif</span>
+      </div>
+      <div class="ledger-body">
+        <div class="field" style="margin-bottom:14px;">
+          <label style="margin-bottom:0;" data-i18n="sim_montants_populaires" data-i18n="sim_popular">Montants populaires</label>
+        </div>
+        <div class="amount-chips" id="sim-amount-chips">
+          <button type="button" data-amount="2000">2 000 €</button>
+          <button type="button" data-amount="5000">5 000 €</button>
+          <button type="button" data-amount="10000" class="active">10 000 €</button>
+          <button type="button" data-amount="25000">25 000 €</button>
+          <button type="button" data-amount="50000">50 000 €</button>
+        </div>
+        <div class="field">
+          <label><span data-i18n="sim_montant_exact">Montant exact</span> <span class="val" id="sim-amount-val">10 000 €</span></label>
+          <input type="range" id="sim-amount" min="1000" max="75000" step="500" value="10000">
+        </div>
+        <div class="field">
+          <label><span data-i18n="sim_duree">Durée de remboursement</span> <span class="val" id="sim-duration-val">48 mois</span></label>
+          <input type="range" id="sim-duration" min="6" max="84" step="6" value="48">
+        </div>
+        <div class="field" style="margin-bottom:0;">
+          <label data-i18n="sim_type">Type de financement</label>
+          <select id="sim-type">
+            <option value="perso" data-i18n="loan1_title">Prêt personnel</option>
+            <option value="auto">Prêt auto</option>
+            <option value="travaux" data-i18n="loan3_title">Prêt travaux</option>
+            <option value="pro" data-i18n="loan4_title">Prêt professionnel</option>
+          </select>
+        </div>
+
+        <div class="ledger-result">
+          <div class="row"><span data-i18n="sim_taux_annuel" data-i18n="sim_rate">Taux annuel (TAEG)</span><strong id="sim-taux">—</strong></div>
+          <div class="row"><span data-i18n="sim_cout_total" data-i18n="sim_cost">Coût total du crédit</span><strong id="sim-cout">—</strong></div>
+          <div class="row total"><span data-i18n="sim_mensualite" data-i18n="sim_monthly">Mensualité estimée</span><strong id="sim-mensualite">—</strong></div>
+        </div>
+      </div>
+      <div class="ledger-foot">
+        <small data-i18n="sim_sous_reserve" data-i18n="sim_note">Sous réserve d'acceptation</small>
+        <a id="sim-to-demande" href="demande.html" class="btn btn-primary btn-small" data-i18n="sim_demander_ce_pret" data-i18n="sim_cta">Demander ce prêt</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;padding-bottom:0;">
+  <div class="wrap partners-strip">
+    <span>Agréé ACPR</span>
+    <span>ORIAS n°16 000 000</span>
+    <span>Paiement 100% sécurisé</span>
+    <span>Conforme RGPD</span>
+    <span>4,7/5 satisfaction client</span>
+  </div>
+</section>
+
+<section style="padding-top:48px;">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="offers_eyebrow">Nos financements</p>
+      <h2 data-i18n="offers_title">Un prêt pour chaque projet</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21l7.78-7.55 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Prêt personnel</h3>
+        <p>Pour un imprévu, un déménagement ou un événement de vie. Sans justificatif d'usage.</p>
+        <a href="offres.html#perso" class="btn btn-ghost btn-small">En savoir plus →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm14 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM5 17V8l2-5h10l2 5v9M5 8h14"/></svg></div>
+        <h3>Prêt auto & moto</h3>
+        <p>Véhicule neuf ou d'occasion, financé dès 4,2&nbsp;% sur une durée allant jusqu'à 84 mois.</p>
+        <a href="offres.html#auto" class="btn btn-ghost btn-small">En savoir plus →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+        <h3>Prêt travaux</h3>
+        <p>Rénovation, agrandissement ou amélioration énergétique de votre logement.</p>
+        <a href="offres.html#travaux" class="btn btn-ghost btn-small">En savoir plus →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 7l2 13h14l2-13M3 7l1.5-4h15L21 7M9 11v5M15 11v5"/></svg></div>
+        <h3>Prêt professionnel</h3>
+        <p>Trésorerie, matériel ou développement pour les indépendants et TPE/PME.</p>
+        <a href="offres.html#pro" class="btn btn-ghost btn-small">En savoir plus →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <h3 data-i18n="loan5_title">Rachat de crédits</h3>
+        <p>Regroupez vos prêts en cours dans une mensualité unique et allégée.</p>
+        <a href="contact.html" class="btn btn-ghost btn-small">Nous contacter →</a>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg></div>
+        <h3 data-i18n="loan6_title">Conseil personnalisé</h3>
+        <p>Un conseiller dédié étudie votre dossier et vous accompagne jusqu'au déblocage des fonds.</p>
+        <a href="a-propos.html" class="btn btn-ghost btn-small">Notre approche →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-forest">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" style="color:#DCE4FF;" data-i18n="steps_eyebrow">Le parcours</p>
+      <h2 data-i18n="steps_title">Trois étapes, un seul formulaire</h2>
+    </div>
+    <div class="steps">
+      <div class="step" style="border-color:rgba(255,255,255,.18);">
+        <span class="n">01</span>
+        <div><h3 style="color:#fff;" data-i18n="step1_title">Simulez</h3><p>Ajustez montant et durée pour voir votre mensualité en temps réel, sans engagement.</p></div>
+      </div>
+      <div class="step" style="border-color:rgba(255,255,255,.18);">
+        <span class="n">02</span>
+        <div><h3 style="color:#fff;" data-i18n="step2_title">Déposez votre dossier</h3><p>Un formulaire en 3 étapes, complétable en moins de 5 minutes.</p></div>
+      </div>
+      <div class="step" style="border-color:rgba(255,255,255,.18);">
+        <span class="n">03</span>
+        <div><h3 style="color:#fff;" data-i18n="step3_title">Recevez votre réponse</h3><p>Réponse de principe sous 24h ouvrées, puis déblocage des fonds sous 48h après signature.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="eyebrow" style="justify-content:center;" data-i18n="testi_eyebrow">Ils nous ont fait confiance</p>
+      <h2 data-i18n="testi_title">Des projets, des visages, des histoires</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <img src="assets/illustrations/avatar-1.svg" alt="Portrait illustré de Camille" style="width:54px;height:54px;border-radius:50%;">
+          <div><strong style="font-family:var(--serif);">Camille R.</strong><br><span style="font-size:.82rem;color:var(--muted);">Prêt travaux, Lyon</span></div>
+        </div>
+        <p>« Simulation claire, dossier accepté en moins de 24h. J'ai enfin pu refaire ma salle de bain sans stress. »</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <img src="assets/illustrations/avatar-2.svg" alt="Portrait illustré de Saïd" style="width:54px;height:54px;border-radius:50%;">
+          <div><strong style="font-family:var(--serif);">Saïd M.</strong><br><span style="font-size:.82rem;color:var(--muted);">Prêt professionnel, Bordeaux</span></div>
+        </div>
+        <p>« Mon conseiller a compris mon activité dès le premier appel. Le déblocage des fonds a été rapide. »</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <img src="assets/illustrations/avatar-3.svg" alt="Portrait illustré de Léa" style="width:54px;height:54px;border-radius:50%;">
+          <div><strong style="font-family:var(--serif);">Léa B.</strong><br><span style="font-size:.82rem;color:var(--muted);">Prêt auto, Paris</span></div>
+        </div>
+        <p>« Aucune surprise sur le taux annoncé en simulation. Exactement ce qui était écrit dans le contrat. »</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap cta-band">
+    <p class="eyebrow" style="justify-content:center;" data-i18n="cta_eyebrow">Prêt à démarrer</p>
+    <h2 data-i18n="cta_title">Votre projet mérite une réponse rapide.</h2>
+    <p class="lede" style="margin:0 auto 28px;">Simulez votre prêt en 30 secondes, sans aucun impact sur votre situation bancaire.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="simulation.html" class="btn btn-primary" data-i18n="btn_simuler_mon_pret">Simuler mon prêt</a>
+      <a href="demande.html" class="btn btn-outline" data-i18n="btn_faire_demande">Faire une demande</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:16px;">
+          <span class="brand-mark">FA</span>
+          <span class="brand-name" style="color:#fff;">Candriam Business<br>Investissement</span>
+        </a>
+        <p data-i18n="footer_disclaimer" data-i18n="footer_legal">Établissement de crédit agréé. Le prêt vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_prets">Prêts</h4>
+        <ul>
+          <li><a href="offres.html#perso" data-i18n="footer_pret_perso">Prêt personnel</a></li>
+          <li><a href="offres.html#auto" data-i18n="footer_pret_auto">Prêt auto</a></li>
+          <li><a href="offres.html#travaux" data-i18n="footer_pret_travaux">Prêt travaux</a></li>
+          <li><a href="offres.html#pro" data-i18n="footer_pret_pro">Prêt professionnel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_entreprise">Entreprise</h4>
+        <ul>
+          <li><a href="a-propos.html" data-i18n="footer_apropos">À propos</a></li>
+          <li><a href="comment-ca-marche.html" data-i18n="footer_comment">Comment ça marche</a></li>
+          <li><a href="faq.html" data-i18n="footer_faq">FAQ</a></li>
+          <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_legal">Légal</h4>
+        <ul>
+          <li><a href="mentions-legales.html" data-i18n="footer_mentions">Mentions légales</a></li>
+          <li><a href="mentions-legales.html#confidentialite" data-i18n="footer_confidentialite">Confidentialité</a></li>
+          <li><a href="mentions-legales.html#cgu" data-i18n="footer_cgu">CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Candriam Business Investissement — SA au capital de 2 500 000 €</span>
+      <span>RCS Paris 812 345 678 — ORIAS n°16 000 000</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/lang.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>
