@@ -150,20 +150,45 @@ nav.main-nav a.current::after{
 .lang-switch:focus{outline:none;border-color:var(--primary);}
 .burger{display:none;}
 
+/* --- Menu mobile ---
+   Le menu est en position:absolute sous le header (et non plus fixed) :
+   le backdrop-filter du header en faisait le bloc conteneur des éléments
+   fixed, ce qui laissait le menu "déborder" sur le contenu de la page. */
 @media (max-width:880px){
   nav.main-nav{
-    position:fixed; inset:68px 0 0 0; background:var(--paper);
-    flex-direction:column; align-items:flex-start; padding:30px 28px;
-    gap:1.4em; transform:translateY(-110%); transition:transform .25s ease;
+    position:absolute; top:100%; left:0; right:0;
+    max-height:calc(100vh - 80px); max-height:calc(100dvh - 80px);
+    overflow-y:auto;
+    background:var(--paper);
+    flex-direction:column; align-items:flex-start;
+    padding:24px 28px 32px; gap:1.2em;
     border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 30px 50px -30px rgba(22,26,43,.25);
+    opacity:0; visibility:hidden; pointer-events:none;
+    transform:translateY(-10px);
+    transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
   }
-  nav.main-nav.open{transform:translateY(0);}
+  nav.main-nav.open{
+    opacity:1; visibility:visible; pointer-events:auto;
+    transform:translateY(0);
+    transition:opacity .2s ease, transform .2s ease, visibility 0s;
+  }
   nav.main-nav a{font-size:1.1rem;}
   .burger{
     display:block;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);
-    width:42px;height:42px;cursor:pointer;
+    width:42px;height:42px;cursor:pointer;font-size:1.1rem;line-height:1;flex:none;
   }
   .nav-cta .btn-outline{display:none;}
+}
+
+/* --- Header compact sur petit écran --- */
+@media (max-width:640px){
+  .site-header .wrap{padding-top:12px;padding-bottom:12px;gap:12px;}
+  .nav-cta{gap:.6em;}
+  .nav-cta .btn{display:none;}
+  .brand-logo{height:34px;}
+  .lang-switch{padding:7px 10px;}
 }
 
 /* ---------- Footer ---------- */
@@ -440,5 +465,14 @@ fieldset legend{font-weight:800;font-size:.85rem;margin-bottom:10px;padding:0;}
 @media (max-width:560px){
   .hero-stats{gap:14px;}
 }
+
+
+/* ---------- Correctifs mobile ---------- */
 .brand-logo{height:42px;width:auto;display:block;}
-@media (max-width:760px){ .brand-logo{height:36px;} }
+@media (max-width:640px){
+  .hero{padding:36px 0 64px;}
+  .hero-blob{transform:scale(.55);opacity:.2 !important;}
+}
+@media (max-width:480px){
+  h1{font-size:2.15rem;}
+}
