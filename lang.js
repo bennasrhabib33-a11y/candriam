@@ -1,4 +1,4 @@
-// France Active Investissement — système de traduction
+// Candriam Business Investissement — système de traduction
 const TRANSLATIONS = {
   fr: {
     // Nav
@@ -14,7 +14,7 @@ const TRANSLATIONS = {
     // Hero
     hero_eyebrow: "Crédit à la consommation & professionnel",
     hero_h1: "Le prêt, expliqué clairement, accordé rapidement.",
-    hero_lede: "France Active Investissement finance vos projets personnels et professionnels avec des taux transparents, un dossier 100 % en ligne et une équipe qui répond, vraiment.",
+    hero_lede: "Candriam Business Investissement finance vos projets personnels et professionnels avec des taux transparents, un dossier 100 % en ligne et une équipe qui répond, vraiment.",
     hero_cta1: "Simuler mon prêt",
     hero_cta2: "Faire une demande",
     hero_stat1_val: "24h",
@@ -99,7 +99,7 @@ const TRANSLATIONS = {
     footer_mentions: "Mentions légales",
     footer_privacy: "Confidentialité",
     footer_terms: "CGU",
-    footer_copy: "© 2026 France Active Investissement — SA au capital de 2 500 000 €",
+    footer_copy: "© 2026 Candriam Business Investissement — SA au capital de 2 500 000 €",
     footer_rcs: "RCS Paris 812 345 678 — ORIAS n°16 000 000",
   },
 
@@ -115,7 +115,7 @@ const TRANSLATIONS = {
     nav_btn_apply: "Apply for a Loan",
     hero_eyebrow: "Personal & Business Credit",
     hero_h1: "The loan, clearly explained, quickly approved.",
-    hero_lede: "France Active Investissement finances your personal and professional projects with transparent rates, a 100% online application, and a team that truly responds.",
+    hero_lede: "Candriam Business Investissement finances your personal and professional projects with transparent rates, a 100% online application, and a team that truly responds.",
     hero_cta1: "Simulate my loan",
     hero_cta2: "Apply now",
     hero_stat1_val: "24h",
@@ -193,7 +193,7 @@ const TRANSLATIONS = {
     footer_mentions: "Legal Notice",
     footer_privacy: "Privacy Policy",
     footer_terms: "Terms of Use",
-    footer_copy: "© 2026 France Active Investissement — SA capital €2,500,000",
+    footer_copy: "© 2026 Candriam Business Investissement — SA capital €2,500,000",
     footer_rcs: "RCS Paris 812 345 678 — ORIAS n°16 000 000",
   },
 
@@ -209,7 +209,7 @@ const TRANSLATIONS = {
     nav_btn_apply: "Solicitar préstamo",
     hero_eyebrow: "Crédito personal y profesional",
     hero_h1: "El préstamo, explicado claramente, aprobado rápidamente.",
-    hero_lede: "France Active Investissement financia sus proyectos personales y profesionales con tasas transparentes, solicitud 100% online y un equipo que responde de verdad.",
+    hero_lede: "Candriam Business Investissement financia sus proyectos personales y profesionales con tasas transparentes, solicitud 100% online y un equipo que responde de verdad.",
     hero_cta1: "Simular mi préstamo",
     hero_cta2: "Solicitar ahora",
     hero_stat1_val: "24h",
@@ -287,7 +287,7 @@ const TRANSLATIONS = {
     footer_mentions: "Aviso legal",
     footer_privacy: "Política de privacidad",
     footer_terms: "Condiciones de uso",
-    footer_copy: "© 2026 France Active Investissement — SA con capital de 2.500.000 €",
+    footer_copy: "© 2026 Candriam Business Investissement — SA con capital de 2.500.000 €",
     footer_rcs: "RCS París 812 345 678 — ORIAS n°16 000 000",
   },
 
@@ -303,7 +303,7 @@ const TRANSLATIONS = {
     nav_btn_apply: "Kredit beantragen",
     hero_eyebrow: "Privat- & Firmenkredit",
     hero_h1: "Der Kredit – klar erklärt, schnell genehmigt.",
-    hero_lede: "France Active Investissement finanziert Ihre persönlichen und beruflichen Projekte mit transparenten Zinssätzen, einem 100 % digitalen Verfahren und einem Team, das wirklich antwortet.",
+    hero_lede: "Candriam Business Investissement finanziert Ihre persönlichen und beruflichen Projekte mit transparenten Zinssätzen, einem 100 % digitalen Verfahren und einem Team, das wirklich antwortet.",
     hero_cta1: "Meinen Kredit simulieren",
     hero_cta2: "Jetzt beantragen",
     hero_stat1_val: "24h",
@@ -381,7 +381,7 @@ const TRANSLATIONS = {
     footer_mentions: "Impressum",
     footer_privacy: "Datenschutz",
     footer_terms: "AGB",
-    footer_copy: "© 2026 France Active Investissement — AG mit Kapital von 2.500.000 €",
+    footer_copy: "© 2026 Candriam Business Investissement — AG mit Kapital von 2.500.000 €",
     footer_rcs: "HRA Paris 812 345 678 — ORIAS n°16 000 000",
   }
 };
@@ -399,6 +399,7 @@ function getLang() {
 
 function setLang(code) {
   localStorage.setItem("fai_lang", code);
+  if (typeof i18nApply === "function") i18nApply(code); // garde i18n.js synchronisé
   applyLang(code);
   updateSwitcher(code);
 }
