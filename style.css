@@ -148,6 +148,8 @@ nav.main-nav a.current::after{
   padding:8px 14px;background:var(--white);cursor:pointer;
 }
 .lang-switch:focus{outline:none;border-color:var(--primary);}
+/* Ancien <select> de langue : remplacé par le sélecteur injecté par lang.js */
+.nav-cta .lang-switch{display:none;}
 .burger{display:none;}
 
 /* --- Menu mobile ---
