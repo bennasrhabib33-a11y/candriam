@@ -1,4 +1,4 @@
-// France Active Investissement — sélecteur de langue (FR / EN / ES)
+// Candriam Business Investissement — sélecteur de langue (FR / EN / ES)
 // Traduit tous les éléments portant un attribut data-i18n="cle"
 // La langue choisie est mémorisée (localStorage) et appliquée sur toutes les pages du site.
 
@@ -17,7 +17,7 @@ const I18N_DICT = {
 
     hero_eyebrow: "Crédit à la consommation & professionnel",
     hero_title: "Le prêt, expliqué clairement, accordé rapidement.",
-    hero_lede: "France Active Investissement finance vos projets personnels et professionnels avec des taux transparents, un dossier 100&nbsp;% en ligne et une équipe qui répond, vraiment.",
+    hero_lede: "Candriam Business Investissement finance vos projets personnels et professionnels avec des taux transparents, un dossier 100&nbsp;% en ligne et une équipe qui répond, vraiment.",
     btn_simuler_mon_pret: "Simuler mon prêt",
     btn_faire_demande: "Faire une demande",
     stat_reponse: "Réponse de principe",
@@ -67,7 +67,7 @@ const I18N_DICT = {
 
     hero_eyebrow: "Consumer & business credit",
     hero_title: "Loans, explained clearly, approved quickly.",
-    hero_lede: "France Active Investissement funds your personal and business projects with transparent rates, a fully online application and a team that actually answers.",
+    hero_lede: "Candriam Business Investissement funds your personal and business projects with transparent rates, a fully online application and a team that actually answers.",
     btn_simuler_mon_pret: "Simulate my loan",
     btn_faire_demande: "Apply now",
     stat_reponse: "Initial response",
@@ -117,7 +117,7 @@ const I18N_DICT = {
 
     hero_eyebrow: "Crédito al consumo y profesional",
     hero_title: "El préstamo, explicado con claridad, concedido rápidamente.",
-    hero_lede: "France Active Investissement financia tus proyectos personales y profesionales con tasas transparentes, una solicitud 100&nbsp;% online y un equipo que realmente responde.",
+    hero_lede: "Candriam Business Investissement financia tus proyectos personales y profesionales con tasas transparentes, una solicitud 100&nbsp;% online y un equipo que realmente responde.",
     btn_simuler_mon_pret: "Simular mi préstamo",
     btn_faire_demande: "Solicitar ahora",
     stat_reponse: "Respuesta de principio",
@@ -151,6 +151,56 @@ const I18N_DICT = {
     footer_confidentialite: "Privacidad",
     footer_cgu: "Términos de uso",
     footer_disclaimer: "Entidad de crédito autorizada. Un préstamo te compromete y debe devolverse. Verifica tu capacidad de pago antes de comprometerte."
+  },
+
+  de: {
+    nav_accueil: "Startseite",
+    nav_simuler: "Kredit simulieren",
+    nav_offres: "Unsere Kredite",
+    nav_comment: "So funktioniert's",
+    nav_faq: "FAQ",
+    nav_apropos: "Über uns",
+    nav_contact: "Kontakt",
+    nav_btn_simuler: "Simulieren",
+    nav_btn_demander: "Kredit beantragen",
+    brand_tagline: "Kreditinstitut",
+
+    hero_eyebrow: "Verbraucher- & Geschäftskredite",
+    hero_title: "Der Kredit – klar erklärt, schnell genehmigt.",
+    hero_lede: "Candriam Business Investissement finanziert Ihre privaten und beruflichen Projekte mit transparenten Zinssätzen, einem 100&nbsp;% digitalen Antrag und einem Team, das wirklich antwortet.",
+    btn_simuler_mon_pret: "Meinen Kredit simulieren",
+    btn_faire_demande: "Jetzt beantragen",
+    stat_reponse: "Grundsatzantwort",
+    stat_taux: "Zinssatz ab",
+    stat_dossiers: "Finanzierte Anträge",
+
+    sim_titre: "Schnellsimulation",
+    sim_indicatif: "Unverbindlich",
+    sim_montants_populaires: "Beliebte Beträge",
+    sim_montant_exact: "Genauer Betrag",
+    sim_duree: "Rückzahlungsdauer",
+    sim_type: "Finanzierungsart",
+    sim_taux_annuel: "Effektiver Jahreszins",
+    sim_cout_total: "Gesamtkosten des Kredits",
+    sim_mensualite: "Geschätzte Monatsrate",
+    sim_sous_reserve: "Vorbehaltlich der Genehmigung",
+    sim_demander_ce_pret: "Diesen Kredit beantragen",
+
+    footer_prets: "Kredite",
+    footer_entreprise: "Unternehmen",
+    footer_legal: "Rechtliches",
+    footer_pret_perso: "Privatkredit",
+    footer_pret_auto: "Autokredit",
+    footer_pret_travaux: "Renovierungskredit",
+    footer_pret_pro: "Geschäftskredit",
+    footer_apropos: "Über uns",
+    footer_comment: "So funktioniert's",
+    footer_faq: "FAQ",
+    footer_contact: "Kontakt",
+    footer_mentions: "Impressum",
+    footer_confidentialite: "Datenschutz",
+    footer_cgu: "Nutzungsbedingungen",
+    footer_disclaimer: "Zugelassenes Kreditinstitut. Ein Kredit verpflichtet Sie und muss zurückgezahlt werden. Prüfen Sie Ihre Rückzahlungsfähigkeit, bevor Sie sich verpflichten."
   }
 };
 
