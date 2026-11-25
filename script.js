@@ -1,4 +1,37 @@
-// France Active Investissement — script partagé
+// Candriam Business — script partagé
+
+/* ---------------- Configuration EmailJS ----------------
+   Renseignez ces 4 valeurs depuis https://dashboard.emailjs.com
+   (Account > Public Key, Email Services > Service ID, Email Templates > Template ID).
+   La clé publique est faite pour être visible côté navigateur : sécurisez-la
+   en limitant les domaines autorisés dans le tableau de bord EmailJS. */
+const EMAILJS_CONFIG = {
+  publicKey: "VOTRE_PUBLIC_KEY",
+  serviceId: "VOTRE_SERVICE_ID",
+  templateContact: "VOTRE_TEMPLATE_CONTACT",
+  templateDemande: "VOTRE_TEMPLATE_DEMANDE"
+};
+
+function sendEmail(templateId, params) {
+  if (typeof emailjs === "undefined") {
+    return Promise.reject(new Error("SDK EmailJS non chargé"));
+  }
+  if (Object.values(EMAILJS_CONFIG).some(v => String(v).startsWith("VOTRE_"))) {
+    return Promise.reject(new Error("Configuration EmailJS incomplète (assets/script.js)"));
+  }
+  return emailjs.send(EMAILJS_CONFIG.serviceId, templateId, params, {
+    publicKey: EMAILJS_CONFIG.publicKey,
+    blockHeadless: true,
+    limitRate: { throttle: 10000 } // 1 envoi toutes les 10 s par page
+  });
+}
+
+function emailErrorMessage(error) {
+  if (error && error.status === 429) {
+    return "Merci de patienter quelques secondes avant de renvoyer le formulaire.";
+  }
+  return "L'envoi a échoué. Merci de réessayer dans un instant ou de nous appeler au 01 84 60 00 00.";
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   // Navigation mobile
@@ -11,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initSimulator();
   initDemandeForm();
+  initContactForm();
 });
 
 /* ---------------- Simulateur de prêt ---------------- */
@@ -134,19 +168,114 @@ function initDemandeForm() {
 
   show(current);
 
-  form.addEventListener("submit", (e) => {
+  // Zone d'erreur d'envoi
+  const errBox = document.createElement("p");
+  errBox.className = "alert";
+  errBox.id = "demande-error";
+  errBox.style.display = "none";
+  form.appendChild(errBox);
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Le formulaire est en "novalidate" : on valide ici la dernière étape
+    let valid = true;
+    steps[current].querySelectorAll("input, select, textarea").forEach(el => {
+      if (valid && !el.checkValidity()) { el.reportValidity(); valid = false; }
+    });
+    if (!valid) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const label = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi en cours…";
+    errBox.style.display = "none";
+
+    const data = new FormData(form);
+    const ref = "CB-" + Math.floor(100000 + Math.random() * 900000);
+
+    try {
+      await sendEmail(EMAILJS_CONFIG.templateDemande, {
+        ref,
+        prenom: data.get("prenom"),
+        nom: data.get("nom"),
+        from_email: data.get("email"),
+        telephone: data.get("telephone"),
+        adresse: data.get("adresse"),
+        type_pret: data.get("type_pret"),
+        montant: formatEUR(Number(data.get("montant") || 0)),
+        duree: (data.get("duree") || "—") + " mois",
+        objet: data.get("objet"),
+        situation: data.get("situation"),
+        revenu: data.get("revenu") + " €",
+        charges: data.get("charges") + " €",
+        logement: data.get("logement")
+      });
+    } catch (error) {
+      console.error("EmailJS :", error);
+      errBox.textContent = emailErrorMessage(error);
+      errBox.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = label;
+      return;
+    }
+
     const summary = document.getElementById("demande-confirmation");
     form.style.display = "none";
     document.querySelector(".progress-steps").style.display = "none";
     if (summary) {
-      const data = new FormData(form);
       summary.querySelector("[data-r-nom]").textContent = `${data.get("prenom") || ""} ${data.get("nom") || ""}`.trim();
       summary.querySelector("[data-r-montant]").textContent = formatEUR(Number(data.get("montant") || 0));
       summary.querySelector("[data-r-duree]").textContent = (data.get("duree") || "—") + " mois";
-      summary.querySelector("[data-r-ref]").textContent = "FAI-" + Math.floor(100000 + Math.random() * 900000);
+      summary.querySelector("[data-r-ref]").textContent = ref;
       summary.style.display = "block";
       summary.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+
+/* ---------------- Formulaire de contact ---------------- */
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+  const ok = document.getElementById("contact-ok");
+  const err = document.getElementById("contact-error");
+  const btn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Champ piège (honeypot) : un humain ne le remplit jamais
+    const trap = form.elements["website"];
+    if (trap && trap.value) {
+      form.style.display = "none";
+      ok.style.display = "block";
+      return;
+    }
+
+    err.style.display = "none";
+    const label = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Envoi en cours…";
+
+    const d = new FormData(form);
+    try {
+      await sendEmail(EMAILJS_CONFIG.templateContact, {
+        from_name: `${d.get("prenom") || ""} ${d.get("nom") || ""}`.trim(),
+        from_email: d.get("email"),
+        phone: d.get("tel") || "Non renseigné",
+        subject: d.get("sujet"),
+        message: d.get("message")
+      });
+      form.style.display = "none";
+      ok.style.display = "block";
+      ok.scrollIntoView({ behavior: "smooth" });
+    } catch (error) {
+      console.error("EmailJS :", error);
+      err.textContent = emailErrorMessage(error);
+      err.style.display = "block";
+      btn.disabled = false;
+      btn.textContent = label;
     }
   });
 }
