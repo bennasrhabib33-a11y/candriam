@@ -6,10 +6,10 @@
    La clé publique est faite pour être visible côté navigateur : sécurisez-la
    en limitant les domaines autorisés dans le tableau de bord EmailJS. */
 const EMAILJS_CONFIG = {
-  publicKey: "VOTRE_PUBLIC_KEY",
-  serviceId: "VOTRE_SERVICE_ID",
-  templateContact: "VOTRE_TEMPLATE_CONTACT",
-  templateDemande: "VOTRE_TEMPLATE_DEMANDE"
+  publicKey: "33L-ciK184uWw5GUU",
+  serviceId: "service_gr4fh29",
+  templateContact: "template_fxpwxqj",
+  templateDemande: "template_5ubbga9"
 };
 
 function sendEmail(templateId, params) {
