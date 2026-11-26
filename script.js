@@ -6,10 +6,10 @@
    La clé publique est faite pour être visible côté navigateur : sécurisez-la
    en limitant les domaines autorisés dans le tableau de bord EmailJS. */
 const EMAILJS_CONFIG = {
-  publicKey: "33L-ciK184uWw5GUU",
-  serviceId: "service_gr4fh29",
-  templateContact: "template_fxpwxqj",
-  templateDemande: "template_5ubbga9"
+  publicKey: "VOTRE_PUBLIC_KEY",
+  serviceId: "VOTRE_SERVICE_ID",
+  templateContact: "VOTRE_TEMPLATE_CONTACT",
+  templateDemande: "VOTRE_TEMPLATE_DEMANDE"
 };
 
 function sendEmail(templateId, params) {
@@ -246,8 +246,9 @@ function initContactForm() {
     e.preventDefault();
 
     // Champ piège (honeypot) : un humain ne le remplit jamais
-    const trap = form.elements["website"];
+    const trap = form.elements["hp_k7x2"];
     if (trap && trap.value) {
+      console.warn("Formulaire ignoré : champ piège rempli.");
       form.style.display = "none";
       ok.style.display = "block";
       return;
