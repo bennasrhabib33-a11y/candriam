@@ -9,7 +9,7 @@ const EMAILJS_CONFIG = {
   publicKey: "33L-ciK184uWw5GUU",
   serviceId: "service_gr4fh29",
   templateContact: "template_fxpwxqj",
-  templateDemande: "template_5ubbga9"
+  templateDemande: "template_5ipadwr"
 };
 
 function sendEmail(templateId, params) {
