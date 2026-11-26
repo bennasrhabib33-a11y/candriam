@@ -30,7 +30,7 @@ function emailErrorMessage(error) {
   if (error && error.status === 429) {
     return "Merci de patienter quelques secondes avant de renvoyer le formulaire.";
   }
-  return "L'envoi a échoué. Merci de réessayer dans un instant ou de nous appeler au 01 84 60 00 00.";
+  return "L'envoi a échoué. Merci de réessayer dans un instant ou de nous appeler au +32 2 507 62 66.";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
